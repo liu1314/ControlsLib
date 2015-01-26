@@ -97,6 +97,8 @@ namespace Jisons
 
         public void SetSystemVolume(float volume)
         {
+            //设置为 false 为取消静音
+            DeviceSystem.AudioEndpointVolume.Mute = false;
             AudioSystem.MasterVolumeLevelScalar = volume;
         }
 
@@ -104,23 +106,34 @@ namespace Jisons
         {
             try
             {
-                MMDeviceEnumerator DevEnum = new MMDeviceEnumerator();
-                DeviceSystem = DevEnum.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eCommunications);
-                var activeList = DeviceSystem.AudioSessionManager;
-                var activeCount = activeList.Sessions.Count;
-                AudioCurrentList = new List<SimpleAudioVolume>();
-                for (int i = 0; i < activeCount; i++)
+                //设置为 false 为取消静音
+                DeviceSystem.AudioEndpointVolume.Mute = false;
+
+                if (AudioCurrent != null)
                 {
-                    var dre = Process.GetCurrentProcess();
-                    var valumInfo = activeList.Sessions[i];
-                    if (PIDCurrent == valumInfo.ProcessID)
-                    {
-                        AudioCurrent = valumInfo.SimpleAudioVolume;
-                        AudioCurrent.MasterVolume = volume;
-                    }
-                    AudioCurrentList.Add(valumInfo.SimpleAudioVolume);
+
+                    AudioCurrent.MasterVolume = volume;
                 }
-                AudioSystem = DeviceSystem.AudioEndpointVolume;
+                else
+                {
+                    MMDeviceEnumerator DevEnum = new MMDeviceEnumerator();
+                    DeviceSystem = DevEnum.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eCommunications);
+                    var activeList = DeviceSystem.AudioSessionManager;
+                    var activeCount = activeList.Sessions.Count;
+                    AudioCurrentList = new List<SimpleAudioVolume>();
+                    for (int i = 0; i < activeCount; i++)
+                    {
+                        var dre = Process.GetCurrentProcess();
+                        var valumInfo = activeList.Sessions[i];
+                        if (PIDCurrent == valumInfo.ProcessID)
+                        {
+                            AudioCurrent = valumInfo.SimpleAudioVolume;
+                            AudioCurrent.MasterVolume = volume;
+                        }
+                        AudioCurrentList.Add(valumInfo.SimpleAudioVolume);
+                    }
+                    AudioSystem = DeviceSystem.AudioEndpointVolume;
+                }
             }
             catch { }
         }
