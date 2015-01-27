@@ -30,7 +30,7 @@ namespace ICESetting
         public static readonly DependencyProperty VolumeValueProperty =
             DependencyProperty.Register("VolumeValue", typeof(double), typeof(VolumeControl), new PropertyMetadata((double)VolumeHelper.Instance.VolumeSystem, VolumeValueChangedCallback));
 
-        /// <summary> 音量增减量 </summary>
+        /// <summary> 音量增减量  与slider控件的value相互绑定 </summary>
         public int VolumeSpan
         {
             get { return (int)GetValue(VolumeSpanProperty); }
