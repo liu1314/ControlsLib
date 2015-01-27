@@ -36,7 +36,7 @@
         <Setter Property="Padding" Value="3" />
         <Setter Property="Background">
             <Setter.Value>
-                <ImageBrush ImageSource="..\Images\textInput.png" />
+                <ImageBrush ImageSource="/ICESetting;component/Images/PopWin/textInput.png" />
             </Setter.Value>
         </Setter>
         <Setter Property="BorderBrush" Value="{x:Null}" />

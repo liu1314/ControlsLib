@@ -56,13 +56,18 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility" />
     <Reference Include="CoreAudioApi">
       <HintPath>.\CoreAudioApi.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationUI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="ReachFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
@@ -70,6 +75,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -98,6 +105,9 @@
     <Compile Include="Control\SelectedBorder.xaml.cs">
       <DependentUpon>SelectedBorder.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FindVisualHelper.cs" />
+    <Compile Include="Helpers\IEqualityComparerHelper.cs" />
+    <Compile Include="Helpers\ResolutionHelper.cs" />
     <Compile Include="Helpers\VolumeHelper.cs" />
     <Compile Include="Library\Animation\PennerDoubleAnimation.cs" />
     <Compile Include="Library\Animation\PennerInterpolator.cs" />
@@ -119,6 +129,9 @@
     <Compile Include="Library\SevenZip\PropVariant.cs" />
     <Compile Include="Library\SevenZip\SevenZipArchive.cs" />
     <Compile Include="Library\SevenZip\SevenZipInterface.cs" />
+    <Compile Include="SettingControls\ResolutionControl.xaml.cs">
+      <DependentUpon>ResolutionControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Stage\DoAction.cs" />
     <Compile Include="Control\MyTime.xaml.cs">
       <DependentUpon>MyTime.xaml</DependentUpon>
@@ -199,6 +212,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="SettingControls\ResolutionControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Stage\SettingStage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -273,34 +290,34 @@
     <Resource Include="Images\border\左上角.png" />
     <Resource Include="Images\border\左下角.png" />
     <Resource Include="Images\border\左边.png" />
-    <Resource Include="Library\LoadMediaSize\Assets\1.png" />
-    <Resource Include="Library\LoadMediaSize\Assets\2.png" />
-    <Resource Include="Library\LoadMediaSize\Assets\3.png" />
-    <Resource Include="Library\LoadMediaSize\Assets\closeProgressDown.png" />
-    <Resource Include="Library\LoadMediaSize\Assets\closeProgressUp.png" />
-    <Resource Include="Library\LoadMediaSize\Assets\loadIcon.png" />
-    <Resource Include="Library\LoadMediaSize\Assets\ProgressBarBg.png" />
-    <Resource Include="Library\LoadMediaSize\Assets\progressBg.png" />
-    <Resource Include="Library\PopWarning\Assets\waringMid.png" />
-    <Resource Include="Library\PopWarning\Assets\warningArrow.png" />
-    <Resource Include="Library\PopWarning\Assets\warningLeft.png" />
-    <Resource Include="Library\PopWarning\Assets\warningRight.png" />
-    <Resource Include="Library\PopWin\Assets\cancelBtnDown.png" />
-    <Resource Include="Library\PopWin\Assets\cancelBtnUp.png" />
-    <Resource Include="Library\PopWin\Assets\okBtnDown.png" />
-    <Resource Include="Library\PopWin\Assets\okBtnUp.png" />
-    <Resource Include="Library\PopWin\Assets\popBG.png" />
-    <Resource Include="Library\PopWin\Assets\popCloseDown.png" />
-    <Resource Include="Library\PopWin\Assets\popCloseUp.png" />
-    <Resource Include="Library\PopWin\Assets\popIcon.png" />
+    <Resource Include="Images\LoadMediaSize\1.png" />
+    <Resource Include="Images\LoadMediaSize\2.png" />
+    <Resource Include="Images\LoadMediaSize\3.png" />
+    <Resource Include="Images\LoadMediaSize\closeProgressDown.png" />
+    <Resource Include="Images\LoadMediaSize\closeProgressUp.png" />
+    <Resource Include="Images\LoadMediaSize\loadIcon.png" />
+    <Resource Include="Images\LoadMediaSize\ProgressBarBg.png" />
+    <Resource Include="Images\LoadMediaSize\progressBg.png" />
+    <Resource Include="Images\PopWarning\waringMid.png" />
+    <Resource Include="Images\PopWarning\warningArrow.png" />
+    <Resource Include="Images\PopWarning\warningLeft.png" />
+    <Resource Include="Images\PopWarning\warningRight.png" />
+    <Resource Include="Images\PopWin\cancelBtnDown.png" />
+    <Resource Include="Images\PopWin\cancelBtnUp.png" />
+    <Resource Include="Images\PopWin\okBtnDown.png" />
+    <Resource Include="Images\PopWin\okBtnUp.png" />
+    <Resource Include="Images\PopWin\popBG.png" />
+    <Resource Include="Images\PopWin\popCloseDown.png" />
+    <Resource Include="Images\PopWin\popCloseUp.png" />
+    <Resource Include="Images\PopWin\popIcon.png" />
     <Resource Include="Images\恢复出厂设置.png" />
     <Resource Include="Images\恢复出厂设置点击.png" />
-    <Resource Include="Library\LoadMediaSize\Assets\ProgressBarBg0.png" />
-    <Resource Include="Library\LoadMediaSize\Assets\图例.png" />
-    <Resource Include="Library\LoadMediaSize\Assets\进度条中间.png" />
-    <Resource Include="Library\LoadMediaSize\Assets\进度条右.png" />
-    <Resource Include="Library\LoadMediaSize\Assets\进度条左.png" />
-    <Resource Include="Library\PopWin\Assets\图例.png" />
+    <Resource Include="Images\LoadMediaSize\ProgressBarBg0.png" />
+    <Resource Include="Images\LoadMediaSize\图例.png" />
+    <Resource Include="Images\LoadMediaSize\进度条中间.png" />
+    <Resource Include="Images\LoadMediaSize\进度条右.png" />
+    <Resource Include="Images\LoadMediaSize\进度条左.png" />
+    <Resource Include="Images\PopWin\图例.png" />
     <Resource Include="Images\bluePoint.png" />
     <Resource Include="Images\greenPoint.png" />
     <Resource Include="Images\redPoint.png" />

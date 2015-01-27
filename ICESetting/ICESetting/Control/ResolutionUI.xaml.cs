@@ -182,7 +182,6 @@ namespace ICESetting.Control
                 Duration = TimeSpan.FromSeconds(0.5)
             };
             showR.BeginAnimation(Canvas.LeftProperty, daX);
-            //Canvas.SetLeft(showR, x - showR.Width / 2.0+15);
             text.Text = ListResolution[SelectedIndex].width.ToString() + "*" + ListResolution[SelectedIndex].height.ToString();
             DoubleAnimation daO = new DoubleAnimation()
             {
@@ -192,6 +191,7 @@ namespace ICESetting.Control
             };
             text.BeginAnimation(OpacityProperty, daO);
         }
+
         public event EventHandler UpdateResolution;
         internal void SetResolution()
         {
