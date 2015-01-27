@@ -250,7 +250,7 @@ namespace TVMWPFLab.Control
             int count = 1;
             dt.Tick += delegate
             {
-                img.Source = new BitmapImage(new Uri("pack://application:,,/Library/LoadMediaSize/Images/" + count.ToString() + ".png"));
+                img.Source = new BitmapImage(new Uri("pack://application:,,/Images/LoadMediaSize/" + count.ToString() + ".png"));
                 if (count == 3)
                 {
                     count = 1;

@@ -15,7 +15,7 @@
     </UserControl.RenderTransform>
     <Grid Width="828" Height="362">
         <Image MouseDown="Window_MouseDown"
-               Source="Images/popBG.png"
+               Source="/ICESetting;component/Images/PopWin/popBG.png"
                Stretch="Fill" />
         <!--  <Image Source="Images/图例.png" MouseDown="Window_MouseDown" Stretch="Fill"/>  -->
 
@@ -26,9 +26,9 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Click="close_Click"
-                        ImageDownSource="Images/popCloseDown.png"
-                        ImageHoverSource="Images/popCloseDown.png"
-                        ImageUpSource="Images/popCloseUp.png"
+                        ImageDownSource="/ICESetting;component/Images/PopWin/popCloseDown.png"
+                        ImageHoverSource="/ICESetting;component/Images/PopWin/popCloseDown.png"
+                        ImageUpSource="/ICESetting;component/Images/PopWin/popCloseUp.png"
                         Visibility="Collapsed" />
         <StackPanel x:Name="stack"
                     Margin="0,-50,0,0"
@@ -39,7 +39,7 @@
             <Image x:Name="icon"
                    Width="87"
                    Margin="115,-15,0,0"
-                   Source="Images/popIcon.png" />
+                   Source="/ICESetting;component/Images/PopWin/popIcon.png" />
             <TextBlock x:Name="text"
                        Width="520"
                        Height="150"
@@ -74,17 +74,17 @@
                             Height="52"
                             Margin="10,0,0,0"
                             Click="RealButton_Click"
-                            ImageDownSource="Images/okBtnDown.png"
-                            ImageHoverSource="Images/okBtnDown.png"
-                            ImageUpSource="Images/okBtnUp.png" />
+                            ImageDownSource="/ICESetting;component/Images/PopWin/okBtnDown.png"
+                            ImageHoverSource="/ICESetting;component/Images/PopWin/okBtnDown.png"
+                            ImageUpSource="/ICESetting;component/Images/PopWin/okBtnUp.png" />
             <BTN:RealButton x:Name="cancleBtn"
                             Width="240"
                             Height="52"
                             Margin="40,0,0,0"
                             Click="close_Click"
-                            ImageDownSource="Images/cancelBtnDown.png"
-                            ImageHoverSource="Images/cancelBtnDown.png"
-                            ImageUpSource="Images/cancelBtnUp.png" />
+                            ImageDownSource="/ICESetting;component/Images/PopWin/cancelBtnDown.png"
+                            ImageHoverSource="/ICESetting;component/Images/PopWin/cancelBtnDown.png"
+                            ImageUpSource="/ICESetting;component/Images/PopWin/cancelBtnUp.png" />
         </StackPanel>
         <Canvas x:Name="selectedCanvas" />
     </Grid>

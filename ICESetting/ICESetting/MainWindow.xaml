@@ -16,6 +16,6 @@
     </Window.LayoutTransform>
     <Grid>
         <stage:SettingStage x:Name="myStage" Loaded="myStage_Loaded" />
-
+        <Grid x:Name="showMessageWin" Panel.ZIndex="1" />
     </Grid>
 </Window>
