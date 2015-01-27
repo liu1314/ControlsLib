@@ -7,7 +7,7 @@ using System.Diagnostics;
 using CoreAudioApi;
 using System.Windows.Controls;
 
-namespace Helpers
+namespace Jisons
 {
     public class VolumeHelper
     {

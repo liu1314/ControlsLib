@@ -44,7 +44,7 @@ namespace ICESetting.Stage
     {
         #region 变量
         bool isTest = false;
-        private MMDevice device;
+
         IntPtr handle;
         DispatcherTimer dtTimer = new DispatcherTimer() { Interval = TimeSpan.FromSeconds(1) };
         public static WarningPlate Warning;
@@ -57,19 +57,18 @@ namespace ICESetting.Stage
         public static SettingStage Stage;
         PopPanel popPanel = null;
 
-
-
         string Meetingpath = @"D:\Ivision3.0ForWin\ICEForWin3.01\ICEForWin3.01\BonjourForWin3.01\bonjour_name.dat";
-
 
         #endregion
 
         #region 构造
+
         public SettingStage()
         {
             InitializeComponent();
             this.Loaded += SettingStage_Loaded;
         }
+
         void SettingStage_Loaded(object sender, RoutedEventArgs e)
         {
             try
@@ -99,17 +98,10 @@ namespace ICESetting.Stage
                 Stage = this;
                 this._scale1.ScaleX = SystemParameters.PrimaryScreenWidth / 1920d;
                 this._scale1.ScaleY = SystemParameters.PrimaryScreenHeight / 1080d;
-                //MMDeviceEnumerator DevEnum = new MMDeviceEnumerator();
-                //device = DevEnum.GetDefaultAudioEndpoint(EDataFlow.eRender, ERole.eMultimedia);
-                //_volume.ValueChanged += Slider_ValueChanged;
-                //_volume.Value = (int)(device.AudioEndpointVolume.MasterVolumeLevelScalar * 100);
-                //device.AudioEndpointVolume.OnVolumeNotification += new AudioEndpointVolumeNotificationDelegate(AudioEndpointVolume_OnVolumeNotification);
 
                 dtTimer.Tick += dt_Tick;
                 dtTimer.Start();
 
-                resolutionUIGrid.Width = resolutionUIGrid.ActualWidth;
-                resolutionUIGrid.Height = resolutionUIGrid.ActualHeight;
                 handle = (IntPtr)new WindowInteropHelper(App.Current.MainWindow).Handle.ToInt32();
 
                 ListObject.Add(volumecontrol);
@@ -123,14 +115,20 @@ namespace ICESetting.Stage
                 ListObject.Add(_minute);//6
                 ListObject.Add(_second);//7
 
-
                 ListObject.Add(meetingName);//8
                 ListObject.Add(updateBox);//9
                 ListObject.Add(appDesc);//10
 
                 ListObject.Add(myLawText);//11
 
-                ListObject.Add(resolutionUIGrid);//12
+                //ListObject.Add(resolutionUIGrid);//12
+                ListObject.Add(resolutionUI);//12
+                resolutionUI.UpdateResolution += (rs, re) =>
+                {
+                    this._scale1.ScaleX = SystemParameters.PrimaryScreenWidth / 1920d;
+                    this._scale1.ScaleY = SystemParameters.PrimaryScreenHeight / 1080d;
+                };
+
                 ListObject.Add(timeZone);//13
                 InitializeSelectedBorder();//
 
@@ -143,18 +141,15 @@ namespace ICESetting.Stage
                 dtUpdate.Start();
                 Utility.DeleteFolder(Directory.GetCurrentDirectory() + "\\ICEPatch\\");
                 CreateLog();
-                resolutionUI.UpdateResolution += resolutionUI_UpdateResolution;
 
                 GetSystemTimeZone();
             }
             catch { }
         }
-        void resolutionUI_UpdateResolution(object sender, EventArgs e)
-        {
-            this._scale1.ScaleX = SystemParameters.PrimaryScreenWidth / 1920d;
-            this._scale1.ScaleY = SystemParameters.PrimaryScreenHeight / 1080d;
-        }
+
         #endregion
+
+        #region 时间处理
 
         #region 系统时间
 
@@ -469,6 +464,10 @@ namespace ICESetting.Stage
             _second._time.Text = dt.Second.ToString() + "秒";
         }
         #endregion
+
+        #endregion
+
+        #region 更新处理
 
         #region 检查系统更新
         private void CheckVersion()
@@ -1008,7 +1007,11 @@ namespace ICESetting.Stage
         }
         #endregion
 
+
+        #endregion
+
         #region 选择框逻辑
+
         private void DealMsg(Msg msg)
         {
 
@@ -1104,6 +1107,8 @@ namespace ICESetting.Stage
                     break;
             }
         }
+
+
         #region 时间设置
 
         private void DealYear(Msg msg)
@@ -1227,29 +1232,6 @@ namespace ICESetting.Stage
                     break;
             }
         }
-        private void DealResolution(Msg msg)
-        {
-            switch (msg)
-            {
-                case Msg.LEFT:
-                    resolutionUI.GoPre();
-                    break;
-                case Msg.RIGHT:
-                    resolutionUI.GoNext();
-                    break;
-                case Msg.DOWN:
-                    GoIndex(8);
-                    break;
-                case Msg.UP:
-                    GoIndex(5);
-                    break;
-                case Msg.OK:
-                    resolutionUI.SetResolution();
-                    break;
-                default:
-                    break;
-            }
-        }
 
         private void DealAppDesc(Msg msg)
         {
@@ -1366,93 +1348,6 @@ namespace ICESetting.Stage
         }
         #endregion
 
-        #region MyRegion
-        /// <summary>
-        ///  程序音量调节
-        /// </summary>
-        private void DealvolumnSlider1(Msg msg)
-        {
-
-            switch (msg)
-            {
-                case Msg.UP:
-                    break;
-                case Msg.DOWN:
-                    break;
-                case Msg.LEFT:
-                    break;
-                case Msg.RIGHT:
-                    break;
-                case Msg.FIRST:
-                    break;
-                case Msg.LAST:
-                    break;
-                case Msg.FORWARD:
-                    break;
-                case Msg.BACKWARD:
-                    break;
-                case Msg.ZOOMIN:
-                    break;
-                case Msg.ZOOMOUT:
-                    break;
-                case Msg.OK:
-                    break;
-                case Msg.CANCEL:
-                    break;
-                case Msg.FUNCTION1:
-                    break;
-                case Msg.FUNCTION2:
-                    break;
-                case Msg.TOUCH:
-                    break;
-                case Msg.ERROR:
-                    break;
-                default:
-                    break;
-            }
-
-
-        }
-        #endregion
-
-
-
-        /// <summary>
-        ///系统音量调节
-        /// </summary>
-        /// <param name="msg"></param>
-        private void DealVolumnSlider(Msg msg)
-        {
-            switch (msg)
-            {
-                case Msg.UP:
-                    GoIndex(11);
-                    break;
-                case Msg.DOWN:
-                    GoIndex(1);
-                    break;
-
-                case Msg.LEFT:
-                    {
-                        if (isOrdersValid)
-                        {
-                            this.volumecontrol.DecreaseVolumn();
-                        }
-                        break;
-                    }
-
-                case Msg.RIGHT:
-                    {
-                        if (isOrdersValid)
-                        {
-                            this.volumecontrol.IncreaseVolumn();
-                        }
-                        break;
-                    }
-
-                default: break;
-            }
-        }
 
 
         int SelectedIndex = 0;
@@ -1518,7 +1413,76 @@ namespace ICESetting.Stage
         }
         #endregion
 
-        #region 测试按钮
+        #region 音量调节消息处理
+
+        /// <summary>
+        ///系统音量调节
+        /// </summary>
+        /// <param name="msg"></param>
+        private void DealVolumnSlider(Msg msg)
+        {
+            switch (msg)
+            {
+                case Msg.UP:
+                    GoIndex(11);
+                    break;
+                case Msg.DOWN:
+                    GoIndex(1);
+                    break;
+
+                case Msg.LEFT:
+                    {
+                        if (isOrdersValid)
+                        {
+                            this.volumecontrol.DecreaseVolumn();
+                        }
+                        break;
+                    }
+
+                case Msg.RIGHT:
+                    {
+                        if (isOrdersValid)
+                        {
+                            this.volumecontrol.IncreaseVolumn();
+                        }
+                        break;
+                    }
+
+                default: break;
+            }
+        }
+
+        #endregion
+
+        #region 分辨率调节消息处理
+
+        private void DealResolution(Msg msg)
+        {
+            switch (msg)
+            {
+                case Msg.LEFT:
+                    resolutionUI.GoPre();
+                    break;
+                case Msg.RIGHT:
+                    resolutionUI.GoNext();
+                    break;
+                case Msg.DOWN:
+                    GoIndex(8);
+                    break;
+                case Msg.UP:
+                    GoIndex(5);
+                    break;
+                case Msg.OK:
+                    resolutionUI.SetResolution();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        #endregion
+
+        #region 分辨率调节测试按钮
 
         /// <summary>
         /// 向前
@@ -1527,8 +1491,6 @@ namespace ICESetting.Stage
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            //GoForward();
             resolutionUI.GoNext();
         }
         /// <summary>
@@ -1538,7 +1500,6 @@ namespace ICESetting.Stage
         /// <param name="e"></param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //GoBackward();
             resolutionUI.GoPre();
         }
         /// <summary>

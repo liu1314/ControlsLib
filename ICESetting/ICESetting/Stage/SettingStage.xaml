@@ -114,23 +114,10 @@
                     <ice:MyTime x:Name="_minute" Margin="0,0,10,0" />
                     <ice:MyTime x:Name="_second" />
                 </StackPanel>
+
                 <!--  分辨率设置  -->
-                <StackPanel Margin="0,37,0,0" Orientation="Horizontal">
-                    <TextBlock HorizontalAlignment="Left"
-                               VerticalAlignment="Center"
-                               FontFamily="微软雅黑"
-                               FontSize="30"
-                               Foreground="#ffffff"
-                               Text="分辨率设置" />
-                    <Grid x:Name="resolutionUIGrid"
-                          Width="530"
-                          Height="52"
-                          Margin="45,0,0,0">
-                        <ice:ResolutionUI x:Name="resolutionUI"
-                                          HorizontalAlignment="Center"
-                                          VerticalAlignment="Bottom" />
-                    </Grid>
-                </StackPanel>
+                <local:ResolutionControl x:Name="resolutionUI" />
+
                 <!--  ICE名称  -->
                 <StackPanel Margin="0,100,0,0" Orientation="Horizontal">
                     <TextBlock HorizontalAlignment="Left"
@@ -267,8 +254,7 @@
         </Grid>
         <StackPanel HorizontalAlignment="Center"
                     VerticalAlignment="Bottom"
-                    Orientation="Horizontal"
-                    Visibility="Collapsed">
+                    Orientation="Horizontal">
             <Button Width="100"
                     Height="50"
                     Click="Button_Click"

@@ -90,7 +90,7 @@
                                                Width="600"
                                                Height="37"
                                                Loaded="image0_Loaded"
-                                               Source="Images/1.png"
+                                               Source="/ICESetting;component/Images/LoadMediaSize/1.png"
                                                Stretch="Fill" />
                                     </Canvas>
                                     <Border Name="PART_GlowRect"
@@ -117,7 +117,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Image Grid.RowSpan="3" Source="Images/progressBg.png" />
+        <Image Grid.RowSpan="3" Source="/ICESetting;component/Images/LoadMediaSize/progressBg.png" />
         <!--  <Image Grid.RowSpan="3" Source="Images/图例.png"/>  -->
 
         <Grid Grid.Row="0">
@@ -128,7 +128,7 @@
                            Height="38"
                            Margin="10,0,10,0"
                            RenderTransformOrigin=".5 .5"
-                           Source="Images/loadIcon.png">
+                           Source="/ICESetting;component/Images/LoadMediaSize/loadIcon.png">
                         <Image.RenderTransform>
                             <RotateTransform x:Name="rotateLoadIcon" />
                         </Image.RenderTransform>
@@ -215,7 +215,7 @@
                    Margin="36,0,0,55"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   Source="Images/ProgressBarBg0.png" />
+                   Source="/ICESetting;component/Images/LoadMediaSize/ProgressBarBg0.png" />
             <ProgressBar Name="bar"
                          Width="600"
                          Height="37"
@@ -234,9 +234,9 @@
                             HorizontalAlignment="Right"
                             VerticalAlignment="Center"
                             Click="RealButton_Click"
-                            ImageDownSource="Images/closeProgressDown.png"
-                            ImageHoverSource="Images/closeProgressDown.png"
-                            ImageUpSource="Images/closeProgressUp.png"
+                            ImageDownSource="/ICESetting;component/Images/LoadMediaSize/closeProgressDown.png"
+                            ImageHoverSource="/ICESetting;component/Images/LoadMediaSize/closeProgressDown.png"
+                            ImageUpSource="/ICESetting;component/Images/LoadMediaSize/closeProgressUp.png"
                             ToolTip="取消"
                             Visibility="Collapsed" />
         </Grid>

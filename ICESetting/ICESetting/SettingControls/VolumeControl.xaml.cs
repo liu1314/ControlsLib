@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Helpers;
+using Jisons;
 using ICESetting.Stage;
 using ICESetting.Utils;
 
@@ -21,7 +21,7 @@ namespace ICESetting
     public partial class VolumeControl : UserControl
     {
 
-        /// <summary> 当前系统音量 </summary>
+        /// <summary> 当前系统音量  与slider控件的value相互绑定 </summary>
         public double VolumeValue
         {
             get { return (double)GetValue(VolumeValueProperty); }
@@ -30,7 +30,7 @@ namespace ICESetting
         public static readonly DependencyProperty VolumeValueProperty =
             DependencyProperty.Register("VolumeValue", typeof(double), typeof(VolumeControl), new PropertyMetadata((double)VolumeHelper.Instance.VolumeSystem, VolumeValueChangedCallback));
 
-        /// <summary> 音量增减量  与slider控件的value相互绑定 </summary>
+        /// <summary> 音量增减量 </summary>
         public int VolumeSpan
         {
             get { return (int)GetValue(VolumeSpanProperty); }
