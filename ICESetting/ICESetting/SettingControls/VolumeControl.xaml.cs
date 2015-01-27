@@ -86,7 +86,6 @@ namespace ICESetting
         public void IncreaseVolumn()
         {
             SettingStage.OrdersIntervial(0.2);
-
             var volume = VolumeValue + VolumeSpan;
             VolumeValue = volume >= 100 ? 100 : volume;
         }
