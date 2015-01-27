@@ -193,13 +193,11 @@ namespace ICESetting
         public void SetResolution()
         {
             CurrentDevmode.SetCurrentDevmode();
-
             Utility.PlaySound("clickDown");
             DoubleAnimation daO = new DoubleAnimation() { From = 1, To = 0.5, AutoReverse = true, Duration = TimeSpan.FromSeconds(0.3) };
             img.BeginAnimation(OpacityProperty, daO);
             text.BeginAnimation(OpacityProperty, daO);
             Utility.INIFILE.SetValue("MAIN", "Resolution", CurrentDevmode.PelsWidth.ToString() + "*" + CurrentDevmode.PelsHeight.ToString());
-
             UpdateResolutionHandle();
         }
 

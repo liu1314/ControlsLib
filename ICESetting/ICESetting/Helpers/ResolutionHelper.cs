@@ -28,7 +28,7 @@ namespace Jisons
         public int PelsHeight { get; set; }
 
         public static implicit operator Devmode(SystemDevmode value)
-        {
+        {  
             return new Devmode() { BitsPerPel = value.BitsPerPel, DisplayFrequency = value.DisplayFrequency, PelsWidth = value.PelsWidth, PelsHeight = value.PelsHeight };
         }
 
