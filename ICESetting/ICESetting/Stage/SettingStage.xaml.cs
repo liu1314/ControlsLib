@@ -523,6 +523,7 @@ namespace ICESetting.Stage
         {
             OpenICEZaker();
         }
+
         /// <summary>
         /// 检查更新
         /// </summary>
@@ -549,6 +550,7 @@ namespace ICESetting.Stage
                 };
             }
         }
+
         /// <summary>
         /// 更新查询结果
         /// </summary>
@@ -617,6 +619,7 @@ namespace ICESetting.Stage
             update.BeginCheck(action);
             /***************************************/
         }
+
         #endregion
 
         #region 更新进度条
@@ -637,12 +640,14 @@ namespace ICESetting.Stage
                 Utility.DownLoadDataAuto();
             };
         }
+
         int currentNumber = 0;
         void Utility_DownLoadNumber(int number)
         {
             CoolBar.ImportValue = number;
             currentNumber = number;
         }
+
         private void InitializeDownLoadQueue(List<string> zipUrlList)
         {
             Utility.QueueAddress.Clear();
@@ -663,6 +668,7 @@ namespace ICESetting.Stage
                 ListLocalZip.Add(urlSave);
             }
         }
+
         void Utility_DownLoadFileFinished(object sender, EventArgs e)
         {
             if (Utility.isManuStopLoad)
@@ -692,16 +698,19 @@ namespace ICESetting.Stage
             CoolBar.perCent.Text = string.Format("({0}/{1}){2}%", currentNumber, CoolBar.MaxMaximum, percent);
 
         }
+
         //void CoolBar_PreviewLoadFinished(object sender, EventArgs e)
         //{
         //    CoolBar.LoadFinished -= CoolBar_PreviewLoadFinished;
         //    Warning.WarningText = "更新完成，正在为您启动服务，请稍后几秒。";
         //}
+
         void CoolBarContentUpdate(string text, string percent)
         {
             CoolBar.ProgressBarContent = text;
             //CoolBar.perCent.Text = percent + "%";
         }
+
         /// <summary>
         /// 添加进度条
         /// </summary>
@@ -715,6 +724,7 @@ namespace ICESetting.Stage
             CoolBar.titleBlock.Text = name;
             PopGrid.Children.Add(CoolBar);
         }
+
         /// <summary>
         /// 移除进度条
         /// </summary>

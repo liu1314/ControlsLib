@@ -59,6 +59,9 @@ namespace ICESetting
             control.InitView();
         }
 
+        /// <summary>
+        /// 分辨率更改通知
+        /// </summary>
         public event EventHandler UpdateResolution;
         protected void UpdateResolutionHandle()
         {
