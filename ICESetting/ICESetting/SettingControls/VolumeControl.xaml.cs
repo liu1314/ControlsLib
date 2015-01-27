@@ -42,24 +42,20 @@ namespace ICESetting
         static void VolumeValueChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var value = (double)e.NewValue;
-
             int volume = (int)(value * 100);
-
             if (volume != (int)VolumeHelper.Instance.VolumeSystem)
             {
                 VolumeHelper.Instance.VolumeSystem = (float)(volume / 100);
             }
             var control = d as VolumeControl;
             control.InitView();
-        }
 
+        }
         public VolumeControl()
         {
             InitializeComponent();
             this.DataContext = this;
-
             this.Loaded += VolumeControl_Loaded;
-
             VolumeHelper.Instance.OnVolumeNotification += Instance_OnVolumeNotification;
         }
 
@@ -67,10 +63,9 @@ namespace ICESetting
         {
             InitView();
         }
-
+        /// <summary>外部系统更改音量时同步显示 </summary>
         void Instance_OnVolumeNotification(CoreAudioApi.AudioVolumeNotificationData data)
         {
-            //外部由系统更改音量时同步显示
             this.Dispatcher.BeginInvoke((Action)(() => { VolumeValue = VolumeHelper.Instance.VolumeSystem; }));
         }
 
