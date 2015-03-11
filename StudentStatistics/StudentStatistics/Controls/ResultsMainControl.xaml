@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="StudentStatistics.ResultsMainControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:StudentStatistics"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Width="1920"
+             Height="1080">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/StudentStatistics;component/Images/background.jpg" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="980" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0"
+                    Background="#394142"
+                    Orientation="Horizontal">
+            <local:TittleButton Margin="60,0,0,0"
+                                Click="Achievement_Click"
+                                ViewText="成员正确率" />
+            <local:TittleButton Margin="20,0,0,0"
+                                Click="Answer_Click"
+                                ViewText="各题正确率" />
+            <local:TittleButton Margin="20,0,0,0"
+                                Click="Completion_Click"
+                                ViewText="平均正确率" />
+            <local:TittleButton Margin="20,0,0,0" ViewText="成员时间" />
+            <local:TittleButton Margin="20,0,0,0"
+                                Click="Accuracy_Click"
+                                ViewText="平均时间" />
+        </StackPanel>
+
+        <Grid Grid.Row="1" Margin="60,110,0,30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="690" />
+                <RowDefinition Height="150" />
+
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="viewcontrol" />
+
+            <Grid Grid.Row="1"
+                  Height="150"
+                  Margin="0,0,0,0">
+
+                <local:PressButton Width="202"
+                                   Height="42"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Bottom">
+                    <local:PressButton.UnPressBrush>
+                        <ImageBrush ImageSource="/StudentStatistics;component/Images/winplay.png" />
+                    </local:PressButton.UnPressBrush>
+                    <local:PressButton.PressBrush>
+                        <ImageBrush ImageSource="/StudentStatistics;component/Images/winplayclick.png" />
+                    </local:PressButton.PressBrush>
+                </local:PressButton>
+
+                <local:PressButton Width="202"
+                                   Height="42"
+                                   Margin="0,0,60,0"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Bottom"
+                                   Click="PressButton_Click">
+                    <local:PressButton.UnPressBrush>
+                        <ImageBrush ImageSource="/StudentStatistics;component/Images/canclecount.png" />
+                    </local:PressButton.UnPressBrush>
+                    <local:PressButton.PressBrush>
+                        <ImageBrush ImageSource="/StudentStatistics;component/Images/canclecountclick.png" />
+                    </local:PressButton.PressBrush>
+                </local:PressButton>
+            </Grid>
+
+        </Grid>
+
+
+    </Grid>
+</UserControl>

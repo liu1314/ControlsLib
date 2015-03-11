@@ -1,0 +1,18 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing" x:Class="MyStudent.CircleControl" 
+             mc:Ignorable="d" 
+    x:Name="Control"
+             d:DesignHeight="400" d:DesignWidth="400">
+    <Canvas Width="400" Height="400">
+
+        <ed:Arc x:Name="comp" ArcThickness="1" ArcThicknessUnit="Percent" Fill="{Binding CompletionBrush,ElementName=Control}"  Height="400" Stretch="None" Stroke="Black" StartAngle="0"  Width="400" StrokeThickness="0" />
+        <ed:Arc x:Name="Uncompletion" ArcThickness="1" ArcThicknessUnit="Percent" EndAngle="360" Fill="{Binding UncompletionBrush,ElementName=Control }" Height="400" Stretch="None" Stroke="Black"  Width="400" StrokeThickness="0"/>
+        <Label x:Name="UncompletionRate"  Canvas.Top="194" Canvas.Left="36" Width="80" Height="80"></Label>
+        <Label x:Name="CompetionRate"  Canvas.Top="194" Canvas.Left="36" Width="80" Height="80"></Label>
+
+    </Canvas>
+</UserControl>

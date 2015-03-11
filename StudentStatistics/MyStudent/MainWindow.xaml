@@ -1,0 +1,9 @@
+﻿<Window x:Class="MyStudent.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MyStudent"
+        Title="MainWindow" Height="650" Width="625">
+    <Grid>
+        <local:StudentInformationControl></local:StudentInformationControl>
+    </Grid>
+</Window>

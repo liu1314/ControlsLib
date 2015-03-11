@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2F606BE5-FD20-4AB8-BE54-6D41451A572D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyStudent</RootNamespace>
+    <AssemblyName>MyStudent</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Drawing" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="StudentInformationControl.xaml.cs">
+      <DependentUpon>StudentInformationControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StudentListControl.xaml.cs">
+      <DependentUpon>StudentListControl.xaml</DependentUpon>
+    </Compile>
+    <Page Include="CircleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CircleControl.xaml.cs">
+      <DependentUpon>CircleControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="StudentInformationControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StudentListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\02.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\03.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\04.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cancle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cancleclick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\canclecount.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\canclecountclick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fontten.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fonttenclick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\02.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\03.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\04.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\cancle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\cancleclick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\canclecount.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\canclecountclick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\fontten.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\fonttenclick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\nextten.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\nexttenclick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\order.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\orderclick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\peoplebottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\peoplebottomclick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\peopleselect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\QQ.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\QQ图片20150304120507.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\QQ图片20150304120648.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\questionnum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\questionnumhalf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\Student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\tipinfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\topbutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\topbuttonclick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\userinfobottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\winplay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\winplayclick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Images\wrong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\nextten.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\nexttenclick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\order.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\orderclick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\peoplebottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\peoplebottomclick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\peopleselect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\QQ.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\questionnum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\questionnumhalf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tipinfo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\topbutton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\topbuttonclick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\userinfobottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\winplay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\winplayclick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\wrong.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
